@@ -8,9 +8,9 @@ an authentication token from Azure AD.
 #pylint: disable=invalid-name
 
 import binascii
-#import hashlib
-#from hmac import compare_digest
-from backports.pbkdf2 import pbkdf2_hmac, compare_digest
+import hashlib
+from hmac import compare_digest
+from hashlib import pbkdf2_hmac
 import logging
 import os
 import sys
@@ -21,6 +21,7 @@ import yaml
 
 loggerName = __name__
 logging.basicConfig(
+    filename='/config/openvpn/openvpn-azure-aad-auth.log',
     format='%(asctime) 25s openvpn-azure-aad-auth %(levelname) 7s %(pathname)s %(module)s: %(message)s'
 )
 logger = logging.getLogger(loggerName)
@@ -33,7 +34,7 @@ def failure():
     ''' The user failed to authenticate or authorize. Exit with an error code '''
     sys.exit(1)
 
-CONFIG_FILE = 'config.yaml'
+CONFIG_FILE = '/config/openvpn/openvpn-azure-aad-auth.yaml'
 
 def main(config_file):
     try:
