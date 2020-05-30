@@ -2,6 +2,8 @@
 OpenVPN Azure Active Directory Auth
 ===================================
 
+Modified to work on Ubiquiti Edgerouter (see https://tickett.wordpress.com/?p=2146)
+
 This is a helper script intended for use with OpenVPN to add support for authentication
 and authorization using Azure Active Directory.
 
