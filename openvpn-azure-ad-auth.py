@@ -21,7 +21,7 @@ import yaml
 
 loggerName = __name__
 logging.basicConfig(
-    filename='/config/openvpn/openvpn-azure-aad-auth.log',
+    filename='/etc/openvpn/config/openvpn-azure-aad-auth.log',
     format='%(asctime) 25s openvpn-azure-aad-auth %(levelname) 7s %(pathname)s %(module)s: %(message)s'
 )
 logger = logging.getLogger(loggerName)
@@ -34,7 +34,7 @@ def failure():
     ''' The user failed to authenticate or authorize. Exit with an error code '''
     sys.exit(1)
 
-CONFIG_FILE = '/config/openvpn/openvpn-azure-aad-auth.yaml'
+CONFIG_FILE = '/etc/openvpn/config/openvpn-azure-aad-auth.yaml'
 
 def main(config_file):
     try:
